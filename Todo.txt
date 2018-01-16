@@ -1,0 +1,27 @@
+Sales
+Personal development
+Biographies
+Business
+Management
+Productivity
+
+
+Books 
+
+
+- fiecare carte 
+	- audio recording / play 
+	- rezumat 
+	- are poza
+	- link catre amazon 
+	- categorie 
+	- autor
+	- abstract 
+
+- english + romanian 
+
+- user profiles
+- book comments and ratings
+
+
+Problems : - Alerts not showing in app
