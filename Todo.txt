@@ -5,9 +5,7 @@ Business
 Management
 Productivity
 
-
 Books 
-
 
 - fiecare carte 
 	- audio recording / play 
@@ -24,4 +22,12 @@ Books
 - book comments and ratings
 
 
-Problems : - Alerts not showing in app
+Problems : 
+
+Todo: 
+
+	- role authorization integration
+		- in views 
+		- for routes
+	- validations for author, category and comment model
+	- views and routes for comment model	
