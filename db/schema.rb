@@ -10,46 +10,58 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20180116171407) do
+ActiveRecord::Schema.define(version: 20180117151209) do
 
   create_table "authors", force: :cascade do |t|
-    t.text "description"
-    t.string "name"
+    t.string "name", null: false
+    t.text "description", default: ""
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "books", force: :cascade do |t|
-    t.text "abstract"
-    t.text "summary"
+    t.string "title", null: false
+    t.string "abstract"
+    t.text "summary", default: "Summary coming soon !!", null: false
     t.string "photo"
-    t.text "shopLink", limit: 2083
-    t.string "author"
+    t.text "shop", limit: 2083
+    t.integer "category_id", null: false
+    t.integer "author_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "category_id"
+    t.index ["author_id"], name: "index_books_on_author_id"
     t.index ["category_id"], name: "index_books_on_category_id"
+    t.index ["title", "author_id"], name: "index_books_on_title_and_author_id", unique: true
   end
 
-  create_table "books_users", id: false, force: :cascade do |t|
+  create_table "books_profiles", id: false, force: :cascade do |t|
     t.integer "book_id", null: false
-    t.integer "user_id", null: false
-    t.index ["user_id"], name: "index_books_users_on_user_id"
+    t.integer "profile_id", null: false
+    t.index ["book_id", "profile_id"], name: "index_books_profiles_on_book_id_and_profile_id", unique: true
   end
 
   create_table "categories", force: :cascade do |t|
-    t.string "title"
+    t.string "title", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "comments", force: :cascade do |t|
-    t.text "message"
+    t.text "message", null: false
     t.integer "rating"
+    t.integer "book_id", null: false
+    t.integer "user_id", null: false
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.integer "book_id"
     t.index ["book_id"], name: "index_comments_on_book_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
+  end
+
+  create_table "profiles", force: :cascade do |t|
+    t.integer "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id", unique: true
   end
 
   create_table "users", force: :cascade do |t|

@@ -1,6 +1,11 @@
 <p id="notice"><%= notice %></p>
 
 <p>
+  <strong>Title:</strong>
+  <%= @book.title %>
+</p>
+
+<p>
   <strong>Abstract:</strong>
   <%= @book.abstract %>
 </p>
@@ -16,14 +21,39 @@
 </p>
 
 <p>
-  <strong>Shoplink:</strong>
-  <%= @book.shopLink %>
+  <strong>Shop:</strong>
+  <%= @book.shop %>
+</p>
+
+<p>
+  <strong>Category:</strong>
+  <%= @book.category.title %>
 </p>
 
 <p>
   <strong>Author:</strong>
-  <%= @book.author %>
+  <%= @book.author.name %>
 </p>
+
+<div>
+  <h3>Comments </h3>
+  <% unless @book.comments.empty?%>
+    <ul>
+    <% @book.comments.each do |comm| %>
+      
+      <li>Message : <%= comm.message %></li>
+      <li>Author : <%= comm.user.email %></li>
+      <li>Date : <%= comm.created_at %></li>
+      <%= link_to 'Destroy', comment_path(comm), method: :delete, data: { confirm: 'Are you sure?' } %>
+      <hr>
+      <br>
+    
+    <% end %>
+    </ul>
+  <% else %>
+    <p> There are no comments associated with this post </p>
+  <% end %>
+</div>
 
 <%= link_to 'Edit', edit_book_path(@book) %> |
 <%= link_to 'Back', books_path %>

@@ -2,8 +2,12 @@
 
 one:
   message: MyText
-  rating: 
+  rating: 1
+  book: one
+  user: one
 
 two:
   message: MyText
-  rating: 
+  rating: 1
+  book: two
+  user: two

@@ -1,6 +1,7 @@
-class User < ApplicationRecord
-	has_and_belongs_to_many :books
-	
+class User < ApplicationRecord	
+	has_many :comments
+	has_one :profile
+
 	after_initialize :set_default_role, :if => :new_record?
 
 	enum role: [:regular, :admin]

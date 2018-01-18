@@ -12,8 +12,13 @@
   <% end %>
 
   <div class="field">
+    <%= form.label :title %>
+    <%= form.text_field :title, id: :book_title %>
+  </div>
+
+  <div class="field">
     <%= form.label :abstract %>
-    <%= form.text_area :abstract, id: :book_abstract %>
+    <%= form.text_field :abstract, id: :book_abstract %>
   </div>
 
   <div class="field">
@@ -21,19 +26,28 @@
     <%= form.text_area :summary, id: :book_summary %>
   </div>
 
-  <div class="field">
+  <!-- <div class="field">
     <%= form.label :photo %>
     <%= form.text_field :photo, id: :book_photo %>
+  </div> -->
+
+  <div class="field">
+    <%= form.label :shop %>
+    <%= form.text_area :shop, id: :book_shop %>
   </div>
 
   <div class="field">
-    <%= form.label :shopLink %>
-    <%= form.text_area :shopLink, id: :book_shopLink %>
+    <%= form.label :category_id %>
+    <%= form.collection_select :category_id, Category.order(:title),:id,:title, include_blank: true %>
+    <%= link_to 'New category', new_category_path %>
   </div>
 
   <div class="field">
-    <%= form.label :author %>
-    <%= form.text_field :author, id: :book_author %>
+    <%= form.label :author_id %>
+    <%= form.collection_select :author_id, Author.order(:name),:id,:name, include_blank: true %>
+
+    <%= link_to 'New author', new_author_path %>
+    
   </div>
 
   <div class="actions">

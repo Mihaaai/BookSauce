@@ -1,3 +1,3 @@
 class Category < ApplicationRecord
-	has_many :books, dependent: :nullify
+	has_many :books
 end

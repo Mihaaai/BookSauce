@@ -1,15 +1,17 @@
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
 
 one:
-  abstract: MyText
+  abstract: MyString
   summary: MyText
   photo: MyString
-  shopLink: MyText
-  author: MyString
+  shop: MyText
+  category: one
+  author: one
 
 two:
-  abstract: MyText
+  abstract: MyString
   summary: MyText
   photo: MyString
-  shopLink: MyText
-  author: MyString
+  shop: MyText
+  category: two
+  author: two

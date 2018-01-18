@@ -17,7 +17,7 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
 
   test "should create author" do
     assert_difference('Author.count') do
-      post authors_url, params: { author: { description: @author.description } }
+      post authors_url, params: { author: { description: @author.description, name: @author.name } }
     end
 
     assert_redirected_to author_url(Author.last)
@@ -34,7 +34,7 @@ class AuthorsControllerTest < ActionDispatch::IntegrationTest
   end
 
   test "should update author" do
-    patch author_url(@author), params: { author: { description: @author.description } }
+    patch author_url(@author), params: { author: { description: @author.description, name: @author.name } }
     assert_redirected_to author_url(@author)
   end
 
